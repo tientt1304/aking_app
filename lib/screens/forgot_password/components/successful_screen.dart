@@ -1,10 +1,8 @@
 import 'package:aking_app/ConfigSize.dart';
-import 'package:aking_app/components/title_content.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constant.dart';
 
 class SuccessfulScreen extends StatelessWidget {
   const SuccessfulScreen({Key? key}) : super(key: key);

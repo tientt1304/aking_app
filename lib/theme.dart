@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'ConfigSize.dart';
 import 'constant.dart';
 
 ThemeData theme() {

@@ -12,7 +12,6 @@ class SignInScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
       ),
-      resizeToAvoidBottomInset: false,
       body: BodySignIn(),
     );
   }

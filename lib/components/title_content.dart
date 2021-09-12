@@ -9,33 +9,37 @@ class TitleContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        padding: EdgeInsets.symmetric(
-          vertical: getProportionateScreenWidth(24),
-          horizontal: getProportionateScreenHeight(12),
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: getProportionateScreenWidth(24),
+        horizontal: getProportionateScreenHeight(12),
+      ),
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              title,
+              style: TextStyle(
+                fontFamily: 'AvernirDemi',
+                fontSize: getProportionateScreenHeight(32),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(12),
+            ),
+            Text(
+              decription,
+              style: TextStyle(
+                fontFamily: 'AvernirMedium',
+                fontSize: getProportionateScreenHeight(16),
+                color: descTextColor,
+              ),
+            ),
+          ],
         ),
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(
-              fontFamily: 'AvernirDemi',
-              fontSize: getProportionateScreenHeight(32),
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: getProportionateScreenHeight(12),
-          ),
-          Text(
-            decription,
-            style: TextStyle(
-              fontFamily: 'AvernirMedium',
-              fontSize: getProportionateScreenHeight(16),
-              color: descTextColor,
-            ),
-          ),
-        ],
       ),
     );
   }

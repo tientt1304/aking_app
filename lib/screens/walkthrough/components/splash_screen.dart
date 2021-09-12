@@ -1,9 +1,6 @@
-import 'package:aking_app/constant.dart';
-import 'package:aking_app/screens/walkthrough/walkthrough_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aking_app/ConfigSize.dart';
-import 'package:aking_app/routes.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -27,7 +24,6 @@ class SplashScreen extends StatelessWidget {
     Future.delayed(Duration(seconds: 3), () {
       // 2 seconds over, navigate to WalkingThrough.
       Navigator.pushNamed(context, "walkingThrough");
-      //Navigator.push(context, MaterialPageRoute(builder: (_) => WalkThroughScreen()));
     });
   }
 }

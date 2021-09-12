@@ -2,32 +2,35 @@ import 'package:flutter/material.dart';
 
 import '../ConfigSize.dart';
 import '../constant.dart';
-
 class ButtonPrimary extends StatelessWidget {
-  const ButtonPrimary({Key? key, this.title, this.routeName}) : super(key: key);
-  final title, routeName;
+  ButtonPrimary({Key? key, this.title, required this.formKey, required this.doOnPress}) : super(key: key);
+  final title;
+  final formKey;
+  final Function() doOnPress;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: getProportionateScreenWidth(327),
-      height: getProportionateScreenHeight(48),
-      child: RaisedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, routeName);
-        },
-        child: Text(
-          title,
-          style: TextStyle(
-            color: Colors.white,
-            fontFamily: 'AvenirDemi',
-            fontSize: getProportionateScreenHeight(18),
-            fontWeight: FontWeight.bold,
+    return Center(
+      child: Container(
+        width: getProportionateScreenWidth(327),
+        height: getProportionateScreenHeight(48),
+        child: ElevatedButton(
+          onPressed: doOnPress,
+          child: Text(
+            title,
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'AvenirDemi',
+              fontSize: getProportionateScreenHeight(18),
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        color: primaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
+          style: ElevatedButton.styleFrom(
+            primary: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5),
+          ),
+          ),
         ),
       ),
     );

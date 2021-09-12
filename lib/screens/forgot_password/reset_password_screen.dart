@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../ConfigSize.dart';
-import 'components/body_forgotpassword.dart';
 import 'components/body_resetpassword.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
@@ -13,7 +12,6 @@ class ResetPasswordScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
       ),
-      resizeToAvoidBottomInset: false,
       body: BodyResetPasswordScreen(),
     );
   }

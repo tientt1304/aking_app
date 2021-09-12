@@ -5,38 +5,83 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'components/body_worklisttoday.dart';
 
-class WorkListScreen extends StatelessWidget {
+class WorkListScreen extends StatefulWidget {
   const WorkListScreen({Key? key}) : super(key: key);
 
   @override
+  _WorkListScreenState createState() => _WorkListScreenState();
+}
+
+class _WorkListScreenState extends State<WorkListScreen> {
+  @override
   Widget build(BuildContext context) {
     ConfigSize().init(context);
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: primaryColor,
-          title: Text('Work List', style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),),
+          title: Text(
+            'Work List',
+            style: TextStyle(
+              fontSize: getProportionateScreenHeight(20),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           actions: <Widget>[
-            InkWell(
-                onTap: () {},
-                child: Container(
-                  padding: EdgeInsets.all(getProportionateScreenWidth(16)),
-                  child: SvgPicture.asset(
-                    'assets/icons/tune.svg',
-                    height: getProportionateScreenHeight(21),
-                    width: getProportionateScreenWidth(20),
-                  ),
-                )
-            )
+            Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getProportionateScreenWidth(16)),
+              child: PopupMenuButton(
+                child: SvgPicture.asset(
+                  'assets/icons/tune.svg',
+                  height: getProportionateScreenHeight(21),
+                  width: getProportionateScreenWidth(20),
+                ),
+                itemBuilder: (context) {
+                  return [
+                    PopupMenuItem(
+                      child: Text(
+                        'Imcomplete Tasks',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: getProportionateScreenHeight(17),
+                        ),
+                      ),
+                    ),
+                    PopupMenuItem(
+                      child: Text(
+                        'Completed Tasks',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: getProportionateScreenHeight(17),
+                        ),
+                      ),
+                    ),
+                    PopupMenuItem(
+                      child: Text(
+                        'All Tasks',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: getProportionateScreenHeight(17),
+                        ),
+                      ),
+                    )
+                  ];
+                },
+              ),
+            ),
           ],
           bottom: TabBar(
             tabs: [
-              Tab(text: 'Today',),
-              Tab(text: 'Month',),
+              Tab(
+                text: 'Today',
+              ),
+              Tab(
+                text: 'Month',
+              ),
             ],
           ),
         ),
@@ -45,6 +90,7 @@ class WorkListScreen extends StatelessWidget {
             BodyWorkListToday(),
             BodyWorkListMonth(),
           ],
+          physics: NeverScrollableScrollPhysics(),
         ),
       ),
     );

@@ -1,10 +1,8 @@
 import 'package:aking_app/ConfigSize.dart';
 import 'package:aking_app/constant.dart';
-import 'package:aking_app/screens/sign_in/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'walkthrough_content.dart';
-import 'package:aking_app/routes.dart';
 
 class BodyWalkThrough extends StatefulWidget {
   @override
@@ -14,7 +12,7 @@ class BodyWalkThrough extends StatefulWidget {
 class _BodyWalkThroughState extends State<BodyWalkThrough> {
   int currentPage = 0;
   PageController _pageController = PageController(initialPage: 0);
-  List<Map<String, String>> WalkthroughData = [
+  List<Map<String, String>> walkThroughData = [
     {
       'image1': 'assets/images/events.svg',
       'text1': 'Welcome to aking',
@@ -50,11 +48,11 @@ class _BodyWalkThroughState extends State<BodyWalkThrough> {
                     currentPage = value;
                   });
                 },
-                itemCount: WalkthroughData.length,
+                itemCount: walkThroughData.length,
                 itemBuilder: (context, index) => WalkthroughContent(
-                  image: WalkthroughData[index]['image1'],
-                  text1: WalkthroughData[index]['text1'],
-                  text2: WalkthroughData[index]['text2'],
+                  image: walkThroughData[index]['image1'],
+                  text1: walkThroughData[index]['text1'],
+                  text2: walkThroughData[index]['text2'],
                 ),
               ),
             ),
@@ -62,7 +60,7 @@ class _BodyWalkThroughState extends State<BodyWalkThrough> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
-                  WalkthroughData.length,
+                  walkThroughData.length,
                   (index) => buildDot(index: index),
                 ),
               ),
