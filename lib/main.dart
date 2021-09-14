@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
       title: 'Aking App',
       theme: theme(),
       routes: routes,
-      home: SignInScreen(),
-      //home: WalkThroughScreen(),
+      //home: SignInScreen(),
+      home: WalkThroughScreen(),
     );
   }
 }
